@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link href="Articles.css" rel="stylesheet" /> -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.cdnfonts.com/css/agency-fb?styles=17318"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Zen Maru Gothic:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair Display:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    
+  </head>
+
+<body>
+    <nav class="navbar navbar-light bg-black">
+        <div class="container justify-content-center">
+          <a class="navbar-brand" href="#">
+            <img
+              src="logo2.png"
+              height="40"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </nav>
+      <div class="container mt-4" >
+
+    </div>
+        <div class="container">
+            <div class="form-check form-check-inline">
+                <h1>Polls</h1>
+            </div>
+            <div class="form-outline mb-4">
+              <input type="text" id="form6Example5" class="form-control" />
+              <label class="form-label" for="form6Example5">title</label>
+            </div>
+            <div class="form-outline mb-5">
+                <textarea class="form-control" id="form6Example" rows="2"></textarea>
+                <label class="form-label" for="form6Example">Question </label>
+                <div class="form-helper">Keep within 15 words </div>
+              </div>
+    
+              <div class="form-outline mb-4">
+                <input type="text" id="form6Example1" class="form-control" />
+                <label class="form-label" for="form6Example1">Option 1</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="form6Example2" class="form-control" />
+                <label class="form-label" for="form6Example2">Option 2</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="form6Example3" class="form-control" />
+                <label class="form-label" for="form6Example3">Option 3</label>
+              </div>
+              <div class="form-outline mb-4">
+                <input type="text" id="form6Example4" class="form-control" />
+                <label class="form-label" for="form6Example4">Option 4</label>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mb-4 " onclick="create_poll()">Submit</button>
+            </div>
+    
+            
+        </div>
+        </div>
+        </div>
+          </div>
+        </div>
+        
+        
+
+    
+
+    
+
+</body>
+<script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
+<script>
+  const HOST_API_URL = "http://localhost:8000";
+  const POLL_API_URL = `${HOST_API_URL}/api/poll`;
+  const getHeaders = () => {
+            return {
+                "Content-Type": "application/json",
+                "x-access-token": localStorage.getItem('jwt')
+            }
+        }
+  async function create_poll() {
+    let qsn = document.getElementById('form6Example').value;
+    let op1 = document.getElementById('form6Example1').value;
+    let op2 = document.getElementById('form6Example2').value;
+    let op3 = document.getElementById('form6Example3').value;
+    let op4 = document.getElementById('form6Example4').value;
+    let title = document.getElementById('form6Example5').value;
+    let poll = {
+            title: title,
+            qsn: qsn,
+            op1: op1,
+            op2: op2,
+            op3: op3,
+            op4: op4
+        }
+    let res = await fetch(POLL_API_URL, { method: 'POST' , headers : getHeaders(), body: JSON.stringify(poll)});
+    let poll_res = await res.json();
+    alert(poll_res?.message);
+    if(poll_res?.status == 'success') {
+      document.location = 'index.html';
+    }
+  }
+  async function login_check() {
+      let res = await fetch(ADMIN_API_URL+'/isAdmin', { method: 'GET', headers : getHeaders() });
+        let author = await res.json() ;
+      let isAdmin = author?.content?.isAdmin;
+        let email = localStorage.getItem("email");
+        if(author?.status == 'success') {
+          if(isAdmin) {
+            console.log("logedin successful");
+          }else {
+            alert("You are not autherized");
+            document.location = 'index.html';
+          }
+        } else {
+          alert("Please login");
+          localStorage.clear();
+          document.location = 'index.html';
+        }
+    }
+    login_check()
+</script>
+
+  </body>
+</html>
+
+</html>

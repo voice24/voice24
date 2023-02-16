@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="Admin.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.cdnfonts.com/css/agency-fb?styles=17318"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  </head>
+
+  <body class="bg-black">
+    <nav class="navbar navbar-light bg-black">
+      <div class="container justify-content-center">
+        <a class="navbar-brand" href="https://voice24.org/index.html">
+          <img
+            src="../img/logo2.png"
+            height="40"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </nav>
+    <div
+      class="modal top fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-mdb-backdrop="true"
+      data-mdb-keyboard="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Do you want to approve?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-mdb-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="approve_post()"
+            >
+              Approve
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal top fade"
+      id="exampleModal1"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-mdb-backdrop="true"
+      data-mdb-keyboard="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Do you want to save the changes?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-mdb-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal top fade"
+      id="exampleModal3"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-mdb-backdrop="true"
+      data-mdb-keyboard="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Do you want to unapprove?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-mdb-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-success"
+              onclick="unapprove_post()"
+            >
+              Unapprove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal top fade"
+      id="exampleModal2"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+      data-mdb-backdrop="true"
+      data-mdb-keyboard="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-mdb-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">Do you want to delete?</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-mdb-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              onclick="delete_post()"
+            >
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-4">
+      <ul class="list-group list-group-horizontal mb-3">
+        <li class="list-group-item sl bg-dark text-white">Sl.No.</li>
+        <li class="list-group-item ti bg-dark text-white">Title</li>
+        <li class="list-group-item st bg-dark text-white text-center">
+          Status
+        </li>
+        <li class="list-group-item ac bg-dark text-white text-center">
+          Action
+        </li>
+      </ul>
+      <div id="post"></div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
+
+    <script>
+      const getHeaders = () => {
+        return {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("jwt"),
+        };
+      };
+      const HOST_API_URL = "http://localhost:8000";
+      const POST_API_URL = `${HOST_API_URL}/api/post`;
+      const BILLBOARD_API_URL = `${HOST_API_URL}/api/billboard`;
+      const ADMIN_API_URL = `${HOST_API_URL}/api/admin`;
+      async function fetch_post() {
+        let res = await fetch(BILLBOARD_API_URL + "/raw", {
+          method: "GET",
+          headers: getHeaders(),
+        });
+        let billboards = await res.json();
+        let ind = 1;
+        let html_content = billboards?.content
+          .map((billboard, index) => {
+            ind = ind + 1;
+            let appove_opt =
+              billboard?.status == "pending"
+                ? `<button type="button" class="btn btn-success" data-mdb-toggle="modal" data-mdb-target="#exampleModal" onclick="setId('` +
+                  billboard?._id +
+                  `')"><i class="fa-solid fa-check"></i></button>`
+                : `<button type="button" class="btn btn-info" data-mdb-toggle="modal" data-mdb-target="#exampleModal3" onclick="setId('` +
+                  billboard?._id +
+                  `')"><i class="fa-solid fa-remove"></i></button>`;
+            return (
+              `
+          <ul class="list-group list-group-horizontal  mb-1">
+            <li class="list-group-item sl bg-dark text-white">` +
+              ind +
+              `</li>
+            <li class="list-group-item ti bg-dark text-white">` +
+              billboard?.title +
+              `</li>
+            <li class="list-group-item st bg-dark text-white d-flex align-items-center justify-content-center">` +
+              billboard?.status +
+              `</li>
+            <li class="list-group-item ac bg-dark text-white d-flex align-items-center justify-content-center"><div class="btn-group" role="group" aria-label="Basic example">
+                ` +
+              appove_opt +
+              `
+                <button type="button" class="btn btn-danger" data-mdb-toggle="modal" data-mdb-target="#exampleModal2" onclick="setId('` +
+              billboard?._id +
+              `')"><i class="fa-solid fa-trash"></i></button>
+              </div></li>
+          </ul>
+    `
+            );
+          })
+          .join("");
+        document.getElementById("post").innerHTML = html_content;
+      }
+
+      function editPost(postId) {
+        localStorage.setItem("postId", postId);
+        document.location = "Admin_Cards_Editor.html";
+      }
+      function setId(postId) {
+        localStorage.setItem("billboardId", postId);
+      }
+      async function approve_post() {
+        let billboardId = localStorage.getItem("billboardId");
+        let id_payload = {
+          _id: billboardId,
+        };
+        let res = await fetch(BILLBOARD_API_URL + "/approve", {
+          method: "PUT",
+          headers: getHeaders(),
+          body: JSON.stringify(id_payload),
+        });
+        let post = await res.json();
+        fetch_post();
+        $("#exampleModal").modal("hide");
+      }
+      async function unapprove_post() {
+        let billboardId = localStorage.getItem("billboardId");
+        let id_payload = {
+          _id: billboardId,
+        };
+        let res = await fetch(BILLBOARD_API_URL + "/unapprove", {
+          method: "PUT",
+          headers: getHeaders(),
+          body: JSON.stringify(id_payload),
+        });
+        let post = await res.json();
+        fetch_post();
+        $("#exampleModal3").modal("hide");
+      }
+      async function delete_post() {
+        let billboardId = localStorage.getItem("billboardId");
+        let res = await fetch(BILLBOARD_API_URL + "/" + billboardId, {
+          method: "DELETE",
+          headers: getHeaders(),
+        });
+        let post = await res.json();
+        fetch_post();
+        $("#exampleModal2").modal("hide");
+      }
+      fetch_post();
+      async function login_check() {
+        let res = await fetch(ADMIN_API_URL + "/isAdmin", {
+          method: "GET",
+          headers: getHeaders(),
+        });
+        let author = await res.json();
+        let isAdmin = author?.content?.isAdmin;
+        let email = localStorage.getItem("email");
+        if (author?.status == "success") {
+          if (isAdmin) {
+            console.log("logedin successful");
+          } else {
+            alert("You are not autherized");
+            document.location = "index.html";
+          }
+        } else {
+          alert("Please login");
+          localStorage.clear();
+          document.location = "index.html";
+        }
+      }
+      login_check();
+    </script>
+  </body>
+</html>

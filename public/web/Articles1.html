@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="index.css" rel="old stylesheet" />
+    <link href="Articles.css" rel="newer stylesheet" />
+    
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.cdnfonts.com/css/agency-fb?styles=17318"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Zen Maru Gothic:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair Display:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+  </head>
+  <body class="bg-black">
+    <!-- <nav class="navbar navbar-light bg-transparent fixed-top">
+      <div class="container justify-content-start">
+        <a class="navbar-brand" href="#">
+          <img
+            src="img\logo1.png"
+            height="30"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </nav> -->
+    <!-- Navigation bar-->
+    <!-- <link href="index.css" rel="stylesheet" /> -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top " style="background: rgb(0, 0, 0,0.1);">
+    <div class="container ">
+      <a class="navbar-brand ms-1 " href="index.html">
+        <img src="img\logo1.png" height="30px" alt="MDB Logo" loading="lazy"/></a>
+      <div class="d-flex align-items-center">
+        <a href="#!" class="text-white-50 fw-bold" data-mdb-target="#exampleModalToggle23" data-mdb-toggle="modal" data-mdb-dismiss="modal" >  <i class="fa-light fa-magnifying-glass me-3 icons1 " style="font-family: 'FontAwesome';"></i> </a>
+        <div class="dropdown ">
+          <a
+            class="text-reset me-2 dropdown-toggle hidden-arrow"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+          <i class="fa-solid fa-circle-chevron-down mt-1 icon "></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end dm"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+          <li>
+            <a class="dropdown-item text-light" href="type.html?type=Government"><i class="fa fa-thin fa-landmark  me-1 "></i> Government</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="type.html?type=Buisness"><i class="fa fa-duotone fa-user-tie  me-2"></i> Business</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light ps-2" href="type.html?type=Public"><i class=" fa fa-solid fa-users me-1" style="margin-left: 7px ;"></i> Public</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="type.html?type=Humanitarian"><i class="fa fa-thin fa-hand-holding-heart " style="margin-right: 5px; "></i> Humanitarian</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="type.html?type=Sports"><i class="fa fa-thin fa-volleyball  " style="margin-right: 10px ; padding-left: 1px"></i>Sports</a>
+          </li>
+          <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-earth me-1"></i> Newsroom</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa fa-thin fa-microphone me-2 " style="padding-left: 1px;"></i> Talkshow</a>
+          </li>
+          <div class="ha mb-2 mt-2"></div>
+          
+            <a class="dropdown-item text-light" href="#"><i class="fas fa-regular fa-square-poll-vertical me-1 " style="margin-left: 2px;"></i>  Polls</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-comment me-1 " style="margin-left: 2px;"></i> Gossips</a>
+          </li>
+          
+          <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="">V24 SPECIALS</a>
+          </li>
+          <li>
+            <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa fa-solid fa-circle-info me-1"></i>  Explains</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa fa-thin fa-film me-2"></i> Films</a>
+          </li>
+          <li> 
+            <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-wand-magic-sparkles me-1"></i>  Explore</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-light" href="#"><i class="fa-solid fa-person-running me-2"></i>  Persuit</a>
+          </li>
+          <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="Categories.html">  DATABASE</a>
+          </li>
+          <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="Categories.html">  CONTACT US</a>
+          </li>
+          <div class="ha mb-2 mt-2"></div>
+          <li>
+            <a class="dropdown-item text-light" href="#" class="text-white-50 fw-bold" data-mdb-target="#exampleModalToggle22" data-mdb-toggle="modal" data-mdb-dismiss="modal" > <span class="hp">  Signup</span></a>
+          </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+  
+  <div class="modal fade" id="exampleModalToggle23" aria-hidden="true" aria-labelledby="exampleModalToggleLabel23" tabindex="-1">
+    <div class="modal-dialog modal-dialog-top ">
+      <div class="modal-content bg-transparent scard ">
+        <div class="container mt-2 ">
+          <!-- <div class="input">
+            <div class="form-outline form-white  w-100">
+              <input id="search-input" type="search"  id="form1" class="form-control " />
+              <label class="form-label " for="form1"><i class="fa-thin fa-magnifying-glass " style="font-family: Montserrat, FontAwesome"></i>   Search</label>
+            </div>
+          </div> -->
+  
+          <div class="d-flex align-items-center mb-3">
+            <input type="text" placeholder="&#xF002; Search" class="search-nav w-100  text-light me-1" style="font-family: Montserrat, FontAwesome">
+            <button type="button" class="btn-close fs-6 btn-close-white mt-2" aria-label="Close" data-mdb-dismiss="modal"></button>
+          </div>
+  
+          <span class="hello ms-3">Hello </span>
+        <p class="pp mb-3 ms-3"><span class="name ">Subham</span></p>
+        <div class="bor pb-3">
+         <div class="row row-cols-1 row-cols-xxxl-2">
+          <div class="col">
+          <div class="d-flex justify-content-evenly">
+          <div class="chip mt-3 ">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          <div class="chip mt-3 ">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          <div class="chip mt-3">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          </div>
+        </div>
+          <div class="col">
+          <div class="d-flex justify-content-evenly">
+          <div class="chip mt-3">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          <div class="chip mt-3 ">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          <div class="chip mt-3 ">
+            <!-- <img src="https://iexperimen.github.io/assets/icon/icon.png" alt="iExperimen" width="96" height="96"> -->
+            Experimenting
+            <span class="closebtn" onclick="this.parentElement.style.display='none'">&times;</span>
+            </div>
+          
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+      <div class="d-flex justify-content-start ms-1">
+        <span class="fs-6 mt-3 rec">Recommended</span>
+      </div>
+      <div class="hs mt-3"></div>
+        <div class="search-card d-flex mt-3  align-items-center">
+          <img src="https://source.unsplash.com/600x400/?people" alt="iExperimen" width="120px" height="80px">
+          <div class="search-body ms-2 lh-sm">
+            <span class="txt">Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+          </div>
+        </div>
+        <div class="hs mt-4"></div>
+        <div class="search-card d-flex mt-3  align-items-center">
+          <img src="https://source.unsplash.com/600x400/?people" alt="iExperimen" width="120px" height="80px">
+          <div class="search-body ms-2 lh-sm">
+            <span class="txt">Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+          </div>
+        </div>
+        <div class="hs mt-4"></div>
+        <div class="search-card d-flex mt-3  align-items-center">
+          <img src="https://source.unsplash.com/600x400/?people" alt="iExperimen" width="120px" height="80px">
+          <div class="search-body ms-2 lh-sm">
+            <span class="txt">Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+          </div>
+        </div>
+        <div class="hs mt-4"></div>
+        <div class="search-card d-flex mt-3  align-items-center">
+          <img src="https://source.unsplash.com/600x400/?people" alt="iExperimen" width="120px" height="80px">
+          <div class="search-body ms-2 lh-sm">
+            <span class="txt">Some quick example text to build on the card title and make up the bulk of the card's content.</span>
+          </div>
+        </div>
+        <div class="hs mt-4"></div>
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  <div class="modal fade" id="exampleModalToggle22" aria-hidden="true" aria-labelledby="exampleModalToggleLabel22" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-transparent">
+        <div class="card  text-white mcard" style="border-radius: 1rem;">
+          <button type="button" class="btn-close fs-6 btn-close-white mt-2 position-absolute end-0 mt-3 me-3" aria-label="Close" data-mdb-dismiss="modal"></button>
+          <div class="card-body p-5 text-center">
+            
+            <div class="mb-md-5 mt-md-4 pb-4">
+              
+              <span class="fw-bold mb-2 text-uppercase login pe-1">Sign-up</span>
+              <p class="text-white-50 pe-1">Please enter your Email and password!</p>
+  
+              <div class="form-outline form-white mb-3 ">
+                <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                <label class="form-label" for="typeEmailX">Email</label>
+              </div>
+  
+              <div class="form-outline form-white mb-3">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <label class="form-label" for="typePasswordX">Password</label>
+              </div>
+              <div class="form-outline form-white mb-3">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                <label class="form-label" for="typePasswordX">Confirm Password</label>
+              </div>
+  
+              <p class="small mb-4 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+  
+              <button class="btn btn-outline-light btn-lg px-5 mb-3" type="submit">Login</button>
+              <div class="d-flex justify-content-center text-center mt-1 pt-1">
+                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+              </div>
+  
+            </div>
+  
+            <div>
+              <p class="mb-2">Already have an account? <a href="#!" class="text-white-50 fw-bold" data-mdb-target="#exampleModal" data-mdb-toggle="modal" data-mdb-dismiss="modal">Login</a>
+              </p>
+            </div>
+  
+          </div>
+        </div>
+    
+  </div>
+  </div>
+  </div>
+        
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content  bg-transparent ">  
+              
+      <div class="card  text-white mcard" style="border-radius: 1rem;">
+        <button type="button" class="btn-close fs-6 btn-close-white mt-2 position-absolute end-0 mt-3 me-3" aria-label="Close" data-mdb-dismiss="modal"></button>
+          <div class="card-body p-5 text-center ">
+  
+            <div class="mb-md-5 mt-md-4 ">
+  
+              <span class="fw-bold mb-2 text-uppercase login pe-1">Login</span>
+              <p class="text-white-50 mb-34 pe-1">Please enter your Email and password!</p>
+  
+              <div class="form-outline form-white mb-3 " >
+                <input type="email" id="typeEmailX" class="form-control form-control-lg " />
+                <label class="form-label" for="typeEmailX">Email</label>
+              </div>
+  
+              <div class="form-outline form-white mb-4 ">
+                <input type="password" id="typePasswordX" class="form-control form-control-lg " />
+                <label class="form-label" for="typePasswordX">Password</label>
+              </div>
+  
+              <p class="small mb-4 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+  
+              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+              <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+              </div>
+  
+            </div>
+  
+            <div>
+              <p class="mt-4 mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold" data-mdb-target="#exampleModalToggle22" data-mdb-toggle="modal" data-mdb-dismiss="modal">Sign Up</a>
+              </p>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+    <!--end of Navigation bar -->
+    <article>
+    <div class="card bg-dark text-white card-article">
+      <img
+        src="https://source.unsplash.com/600x400/?politics"
+        class="card-img cardimg"
+        alt="Stony Beach"
+      />
+      <div class="article-date">
+        <span class="vws ">06 Nov 2022</span>
+      </div>
+      <div class="lss position-absolute d-flex align-items-center flex-column ">
+        <i class="fa-regular fa-heart fs-1 fw-bold"></i>
+        <p class="text-light www mb-5 ">446 likes</p>
+        <i class="fa-regular fa-paper-plane  fs-1"></i>
+        <p class="www mb-5">3461 views</p>
+        <i class="fa-regular fa-bookmark mb-3 fs-1"></i>
+      </div> 
+      <div
+        class="card-img-overlay d-flex align-items-end justify-content-start "
+      >
+      </div>
+    </div>
+<div data-aos="zoom-in-up">
+
+  <div class="card bg-dark text-white card-article">
+    <img
+      src="https://source.unsplash.com/600x400/?politics"
+      class="card-img cardimg"
+      alt="Stony Beach"
+    />
+
+    <div
+      class="card-img-overlay d-flex align-items-end justify-content-start cover">
+      <div class="card-body cbody ">
+        <h5 class="card-title lh-sm A-card-title">
+          FOMER CRICKETER ANDREW SYMONDS DIES AT 46 AFTER MEETING WITH A CAR
+          ACCIDENT
+        </h5>
+        <p class="card-text lh-sm">
+          This is a wider card with supporting text below as a natural lead-in
+          to additional content. This content is a little bit longer.
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  <div data-aos="zoom-in-up">
+
+    <div class="card bg-dark text-white card-article">
+      <video src = " https://jsoncompare.org/LearningContainer/SampleFiles/Video/MP4/Sample-MP4-Video-File-Download.mp4 " autoplay loop width="100%" height="100%">
+Your browser doesn't support HTML5 Video .
+</video>
+
+      <div
+        class="card-img-overlay d-flex align-items-end justify-content-start cover"
+      >
+        <div class="card-body cbody ">
+          <h5 class="card-title lh-sm A-card-title">
+            FOMER CRICKETER ANDREW SYMONDS DIES AT 46 AFTER MEETING WITH A CAR
+            ACCIDENT
+          </h5>
+          <p class="card-text lh-sm">
+            This is a wider card with supporting text below as a natural lead-in
+            to additional content. This content is a little bit longer.
+            
+          </p>
+        </div>
+      </div>
+    </div>
+</article>
+
+  <div class="container">
+    <p class="mb-3 fs-5 fw-light text-uppercase ts"><strong>Recommended</strong></p>
+    <div class="row row-cols-1 row-cols-sm-3 g-4">
+      <div class="col">
+        <div data-aos="zoom-in-up ">
+          <a href="Articles.html">
+        <div class="card posts bg-black  " >
+          <span class="d-flex justify-content-start" > <h6>SPORTS</h6></span>
+          <img src="https://source.unsplash.com/600x400/?computer" class="card-img-top" alt="Fissure in Sandstone"/>
+          <div class="card-body cb bg-black">
+            <h5 class="card-title lh-sm ctitle">FOMER CRICKETER ANDREW SYMONDS DIES AT 46 AFTER MEETING WITH A CAR ACCIDENT</h5>
+            <p class="card-text  lh-sm ctext">The 46 year old was involved in a single-vehicle accident on Saturday night as per the police. Emergency services were provided however the cricketer succumbed to his injuries the police added.</p>
+           <span class="d-flex  ">
+            <p class="text-light www">446 likes</p>
+            <p class="views www">3461 views</p></span>
+          <div class="btns bg-black ">
+            <div class="left">
+              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-paper-plane"></i>
+            </div>
+            <div class="right">
+              <i class="fa-regular fa-bookmark"></i>
+          </div>
+        </div>
+      </div>
+     </div>
+    </a>
+    </div>
+    </div> 
+    <div class="hr mb-2"></div>
+      <div class="col">
+        <div data-aos="zoom-in-up ">
+        <div class="card posts bg-black " >
+          <span class="d-flex justify-content-start"> <h6>SPORTS</h6></span>
+          <img src="https://source.unsplash.com/600x400/?computer" class="card-img-top" alt="Fissure in Sandstone"/>
+          <div class="card-body cb bg-black">
+            <h5 class="card-title lh-sm ctitle">FOMER CRICKETER ANDREW SYMONDS DIES AT 46 AFTER MEETING WITH A CAR ACCIDENT</h5>
+            <p class="card-text  lh-sm ctext">The 46 year old was involved in a single-vehicle accident on Saturday night as per the police. Emergency services were provided however the cricketer succumbed to his injuries the police added.</p>
+           <span class="d-flex  ">
+            <p class="text-light www ">446 likes</p>
+             <p class="views www">3461 views</p></span>
+          <div class="btns bg-black ">
+            <div class="left">
+              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-paper-plane"></i>
+            </div>
+            <div class="right">
+              <i class="fa-regular fa-bookmark"></i>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+    </div> 
+    
+    
+    <div class="hr mb-2"></div>
+    
+      <div class="col">
+        <div data-aos="zoom-in-up ">
+        <div class="card posts bg-black ">
+          <span class="d-flex justify-content-start" > <h6>SPORTS</h6></span>
+          <img src="https://source.unsplash.com/600x400/?computer" class="card-img-top" alt="Fissure in Sandstone"/>
+          <div class="card-body cb bg-black">
+            <h5 class="card-title lh-sm ctitle">FOMER CRICKETER ANDREW SYMONDS DIES AT 46 AFTER MEETING WITH A CAR ACCIDENT</h5>
+            <p class="card-text  lh-sm ctext">The 46 year old was involved in a single-vehicle accident on Saturday night as per the police. Emergency services were provided however the cricketer succumbed to his injuries the police added.</p>
+           <span class="d-flex  ">
+            <p class="text-light www ">446 likes</p>
+             <p class="views www">3461 views</p></span>
+          <div class="btns bg-black ">
+            <div class="left">
+              <i class="fa-regular fa-heart"></i>
+              <i class="fa-regular fa-paper-plane"></i>
+            </div>
+            <div class="right">
+              <i class="fa-regular fa-bookmark"></i>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div> 
+    </div>
+</div>
+  </div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+    <script>
+      $(function () {
+        $("#nav-placeholder").load("nav.html");
+      });
+    </script>
+  </body>
+</html>

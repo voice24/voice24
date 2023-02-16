@@ -1,0 +1,31 @@
+{
+  "name": "voice24",
+  "version": "1.0.0",
+  "description": "Voice 24 is a news app which provides local news.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "format": "rome format . --write",
+    "lint": "rome check . --apply-suggested"
+  },
+  "dependencies": {
+    "app-root-path": "^3.0.0",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.4.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.7.7",
+    "nodemon": "^2.0.19",
+    "otp-generator": "^4.0.0",
+    "twilio": "^3.82.2",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "rome": "^11.0.0"
+  }
+}

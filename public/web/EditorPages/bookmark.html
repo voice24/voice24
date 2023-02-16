@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="type.css" rel="stylesheet" />
+
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.cdnfonts.com/css/agency-fb?styles=17318"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Teko:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Condensed:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Zen Maru Gothic:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body class="bg-black">
+    <div id="myheader"></div>
+
+    <div id="bookmark"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+    ></script>
+    <script>
+      const getHeaders = () => {
+        return {
+          "Content-Type": "application/json",
+          "x-access-token": localStorage.getItem("jwt"),
+        };
+      };
+      async function like(postId) {
+        let id_payload = {
+          _id: postId,
+        };
+        let res = await fetch(POST_API_URL + "/like", {
+          method: "PUT",
+          headers: getHeaders(),
+          body: JSON.stringify(id_payload),
+        });
+        let posts = await res.json();
+        fetch_tag();
+      }
+      async function fetch_bookmark() {
+        let posts = [];
+        let bookmarks_list = localStorage.getItem("bookmarks");
+
+        let html_content = ``;
+        if (bookmarks_list) {
+          let bookmarks = bookmarks_list.split(",");
+          for (let i = 0; i < bookmarks.length; i++) {
+            let postId = bookmarks[i];
+            let res = await fetch(POST_API_URL + "/" + postId, {
+              method: "GET",
+            });
+            let posts_res = await res.json();
+            posts.push(posts_res.content);
+          }
+          html_content = posts
+            .map(
+              (post) =>
+                `
+        <div class="col">
+        <a href="Articles.html?id=` +
+                post?._id +
+                `" class="text-light">
+        <div class="card bg-black posts">
+          <span class="d-flex justify-content-start text-uppercase"> <h6>` +
+                post?.category +
+                `</h6></span>
+          <img src="` +
+                post?.photo +
+                `" class="card-img-top cito" alt="` +
+                post?.caption +
+                `"/>
+          <div class="card-body cb bg-black">
+            <h5 class="card-title lh-sm ctitle">` +
+                post?.title +
+                `</h5></a>
+            <a href="Articles.html?id=` +
+                post?._id +
+                `" class="text-light"><p class="card-text  lh-sm ctext">` +
+                post?.body.slice(0, 150) +
+                `</p>
+          </a>
+           <span class="d-flex  ">
+            <p class="text-light www ">` +
+                post?.likes?.length +
+                ` likes</p>
+             <p class="www">` +
+                post?.views +
+                ` views</p></span>
+             <div class="btns bg-black ">
+             <div class="left d-flex align-items-center ">
+               <i class="fa-regular fa-heart me-3" onclick="like('` +
+                post?._id +
+                `')"></i>
+              
+               <a
+               class="dropdown-toggle d-flex align-items-center hidden-arrow"
+               href="#"
+               id="navbarDropdownMenuAvatar"
+               role="button"
+               data-mdb-toggle="dropdown"
+               aria-expanded="false"
+               >
+                   <i class="fa-regular fa-paper-plane text-light"></i>
+               </a>
+               <ul class="dropdown-menu bg-dark share-btn rounded-8"
+           aria-labelledby="navbarDropdownMenuAvatar">
+           <div class="d-flex justify-content-evenly align-items-center">
+             <li class="list-item ">
+               <a class="list-item-link" onclick="copy_link('` +
+                post?._id +
+                `')">
+                 <span class="fas fa-link  "></span>
+               </a>
+             </li>
+             <li class="list-item">
+               <a class="list-item-link" onclick="share_post('` +
+                post?._id +
+                `', '` +
+                post?.title +
+                `', '` +
+                post?.hashtags +
+                `', 'whatsApp')">
+                 <span class="fab fa-whatsapp "></span>
+               </a>
+             </li>
+             <li class="list-item">
+               <a class="list-item-link" onclick="share_post('` +
+                post?._id +
+                `', '` +
+                post?.title +
+                `', '` +
+                post?.hashtags +
+                `', 'facebook')">
+                 <span class="fab fa-facebook-f"></span>
+               </a>
+             </li>
+             <li class="list-item">
+               <a class="list-item-link" onclick="share_post('` +
+                post?._id +
+                `', '` +
+                post?.title +
+                `', '` +
+                post?.hashtags +
+                `', 'twitter')">
+                 <span class="fab fa-twitter"></span>
+               </a>
+             </li>
+           </div>
+           </ul>
+               </div>
+             <div class="right">
+               <i class="fa-regular fa-bookmark"></i>
+           </div>
+         </div>
+      </div>
+      </div>
+      </div>  
+      <div class="hr mt-4 mb-4"></div>
+                `
+            )
+            .join("");
+        } else {
+          html_content = `No book marks till now`;
+        }
+
+        document.getElementById("bookmark").innerHTML = html_content;
+        document.getElementById("btn1").addEventListener("click", function () {
+          document.getElementById("box").classList.toggle("act");
+        });
+      }
+
+      const HOST_API_URL = "http://localhost:8000";
+      const POST_API_URL = `${HOST_API_URL}/api/post`;
+      const GOSSIP_API_URL = `${HOST_API_URL}/api/gossip`;
+      const POLL_API_URL = `${HOST_API_URL}/api/poll`;
+      const LATEST_POLL_API_URL = `${POLL_API_URL}/latest`;
+      const SM_BD_API_URL = `${HOST_API_URL}/api/billboard/size/small`;
+      const BG_BD_API_URL = `${HOST_API_URL}/api/billboard/size/big`;
+      const UPLOAD_API_URL = `${HOST_API_URL}/upload`;
+      const STATIC_API_URL = `${HOST_API_URL}/public`;
+      const AUTHOR_API_URL = `${HOST_API_URL}/api/author`;
+      const ADMIN_API_URL = `${HOST_API_URL}/api/admin`;
+
+      fetch_bookmark();
+      function copy_link(id) {
+        var base_url = window.location.origin;
+        let postUrl = base_url + "/shared_item.html?id=" + id;
+        navigator.clipboard.writeText(postUrl).then(
+          function () {
+            console.log("Async: Copying to clipboard was successful!");
+          },
+          function (err) {
+            console.error("Async: Could not copy text: ", err);
+          }
+        );
+      }
+
+      function share_post(id, title, hashtags, media) {
+        let hashTag = hashtags;
+        var base_url = window.location.origin;
+        let postUrl = base_url + "/shared_item.html?id=" + id;
+        if (media == "twitter") {
+          url = `https://twitter.com/share?url=${postUrl}&text=${title}&hashtags=${hashTag}`;
+        } else if (media == "facebook") {
+          url = `https://www.facebook.com/sharer.php?u=${postUrl}`;
+        } else if (media == "whatsApp") {
+          url = `https://api.whatsapp.com/send?text=${title} ${postUrl}`;
+        } else if (media == "linkedIn") {
+          url = `https://www.linkedin.com/shareArticle?url=${postUrl}&title=${PostTitle}`;
+        } else {
+          url = `https://pinterest.com/pin/create/bookmarklet/?url=${postUrl}&description=${PostTitle}`;
+        }
+        window.open(url, "_blank");
+      }
+    </script>
+    <script src="header.js"></script>
+  </body>
+</html>

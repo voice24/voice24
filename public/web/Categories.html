@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="index.css" rel="old stylesheet" />
+    <link href="Categories.css" rel="newer stylesheet" />
+    
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="http://fonts.cdnfonts.com/css/agency-fb?styles=17318"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Zen Maru Gothic:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair Display:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.css"
+      rel="stylesheet"
+    />
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    
+  </head>
+
+<body class="bg-black">
+    <!--Navigation bar-->
+    <div id="myheader">
+
+    </div>
+    
+    
+
+        <!--end of Navigation bar-->
+       <div class="container">
+        <h1 class="text-start mt-2  text-light">Categories</h1>
+        <div class="accordion accordion-borderless mt-3 " id="accordionFlushExampleX">
+
+          </div>
+       </div>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script
+          type="text/javascript"
+          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.4.0/mdb.min.js"
+        ></script>
+        <script>
+          const HOST_API_URL = "http://localhost:8000";
+          const POST_API_URL = `${HOST_API_URL}/api/post`;
+          const BRAND_API_URL = `${HOST_API_URL}/api/brand`;
+          const ADMIN_API_URL = `${HOST_API_URL}/api/admin`;
+          const getHeaders = () => {
+  return {
+      "Content-Type": "application/json",
+      "x-access-token": localStorage.getItem('jwt')
+  }
+}
+          async function fetch_category () {
+            
+           
+           let res = await fetch(BRAND_API_URL, { method: 'GET' })
+           let brands_res = await res.json() ; 
+           let brands = brands_res?.content;
+           let cat_map = {};
+          for(let i=0; i< brands.length ;i++) {
+              let brand = brands[i];
+
+              if((brand.category in cat_map)==false){
+                cat_map[brand.category] =[];
+              }
+              cat_map[brand.category].push(brand);
+             
+            }
+            let html_content = ``;
+            let i=0;
+            for (let [category, v] of Object.entries(cat_map)) {
+              i++;
+              let brand_list = cat_map[category];
+              let options = brand_list.map ( brand =>
+                    `
+                    <li class="list-group-item list-group-item-action px-3 border-0 rounded-6  mb-2 text-light"> <a href="Brand.html?brand=`+brand?._id+`" class="text-light">`+brand?.name+`</a></li>
+                        `
+                        ).join('') ;
+
+            
+            html_content = html_content + `
+            <div class="accordion-item bg-black mb-3 rounded-6">
+              <h2 class="accordion-header" id="flush-headingFiveX">
+                <button class="accordion-button collapsed bg-dark rounded-6 text-light" type="button" data-mdb-toggle="collapse"
+                  data-mdb-target="#flush-collapseFourX`+i+`" aria-expanded="false" aria-controls="flush-collapseFourX`+i+`">
+                   `+category+`
+                </button>
+              </h2>
+              <div id="flush-collapseFourX`+i+`" class="accordion-collapse collapse" aria-labelledby="flush-headingFourX`+i+`"
+                data-mdb-parent="#accordionFlushExampleX">
+                <div class="accordion-body">
+                    <ul class="list-group list-group-light ">                        
+                        `+options+`
+                      </ul>
+                </div>
+              </div>
+            </div>
+            `
+          }
+          document.getElementById('accordionFlushExampleX').innerHTML = html_content;
+          }
+          fetch_category()
+        </script>
+        <script src="header.js"></script>
+      </body>
+    </html>
+    
+    </html>
