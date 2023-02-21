@@ -198,12 +198,13 @@ async function fetch_post(postId) {
   // like-views-bookmark section
   let _temp = `
       <div class="d-flex align-items-center flex justify-content-center mt-4" id="like-views-bookmark" >
-          ${like_content}                         <p class="www mb-4">${
-    post?.likes?.length + post?.ml
-  } likes</p>
-          <i class="fa-regular fa-eye fs-1"></i>  <p class="www mb-4">${
-            post?.views + post?.mv
-          } views</p> 
+          ${like_content}                         
+          
+          <p class="www">${post?.likes?.length + post?.ml} likes</p>
+
+          <i class="fa-regular fa-eye fs-1"></i>  
+          <p class="www">${post?.views + post?.mv} views</p> 
+          
           ${bookmark_content}
       </div> 
     `;

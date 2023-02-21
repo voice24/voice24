@@ -128,7 +128,13 @@ background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%)
   }
 
 #like-views-bookmark{
-    gap: 1rem;
+    gap: 3rem;
+}
+
+@media screen and (max-width: 500px) {
+    #like-views-bookmark{
+        gap: 2rem;
+    }
 }
 
 .center {
