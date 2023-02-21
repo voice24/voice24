@@ -7,8 +7,17 @@ const multer = require("multer");
 const rformat = require("./utils/response-formater");
 const rcode = require("./utils/response-code");
 const fs = require("fs");
+const rateLimit = require('express-rate-limit')
 
 global.__root = `${__dirname}/`;
+const apiLimiter = rateLimit({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+})
+
+app.use('/api', apiLimiter)
 app.use(cors());
 
 // Frontend static files
