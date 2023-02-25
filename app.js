@@ -43,7 +43,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: (req, file, callBack) => {
         callBack(null, "./public/images/"); // './public/images/' directory name where save the file
     },
@@ -55,18 +55,19 @@ var storage = multer.diskStorage({
     },
 });
 
-var upload = multer({
+const upload = multer({
     storage: storage,
 }).single("image");
 
-const uploadImage = (_req, _res) => {
+const uploadImage = (res, req, next) => {
     if(!fs.existsSync("./public/images/")){
         fs.mkdirSync("./public/images/");
     }
+    next()
 }
 
 
-app.post("/api/upload", uploadImage, upload, function (req, res) {
+app.post("/api/upload", uploadImage, upload, (req, res) => {
     res.set("Access-Control-Allow-Origin", "*");
 
     if (!req.file) {
@@ -74,7 +75,7 @@ app.post("/api/upload", uploadImage, upload, function (req, res) {
             .status(rcode.INTERNAL_SERVER_500)
             .json(rformat.failure("Unable to upload post"));
     } else {
-        var imgsrc = req.file.filename;
+        const imgsrc = req.file.filename;
         return res.status(rcode.OK).json(rformat.success(imgsrc));
     }
 });
